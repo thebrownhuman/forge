@@ -8,7 +8,8 @@
     "typecheck": "tsc --noEmit",
     "validate:content": "tsx scripts/validate-content.ts",
     "start": "ng serve --port 4200",
-    "build": "ng build"
+    "build": "ng build",
+    "deploy": "bash scripts/deploy-nuc.sh"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.27",

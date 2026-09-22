@@ -29,6 +29,7 @@ export const routes: Routes = [
   },
   {
     path: 'system-design/:id',
+    title: 'System Design · Forge',
     loadComponent: () => import('./pages/system-design/sd-module.component').then((m) => m.SdModuleComponent),
   },
   {
@@ -37,7 +38,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/cheatsheet/cheatsheet.component').then((m) => m.CheatsheetComponent),
   },
   {
+    // A static title: the tab keeps the previous page's name otherwise, and a
+    // dynamic one would need a resolver for very little gain.
     path: 'topic/:id',
+    title: 'Topic · Forge',
     loadComponent: () => import('./pages/topic/topic.component').then((m) => m.TopicComponent),
   },
   { path: '**', redirectTo: 'today' },
