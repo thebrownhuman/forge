@@ -47,6 +47,18 @@ npm run validate:content   # content gate
 npm run build              # production build
 ```
 
+## Deployment
+
+Pushing to `main` builds a container image in GitHub Actions — the content gate
+runs inside that build, so broken content cannot deploy — publishes it to
+`ghcr.io/thebrownhuman/forge:latest`, and Watchtower on the home server pulls it
+within five minutes.
+
+`scripts/deploy-nuc.sh` (`npm run deploy`) still exists for pushing a local build
+straight to the box when CI is down or you want to try something uncommitted.
+
+Served on the LAN only. Forge has no authentication and nothing to log in to.
+
 ## Deliberate non-features
 
 - **No LeetCode sync.** There is no public API. The unofficial endpoint needs a server-side proxy, which the local-only constraint rules out. Marking is manual. Forge never asks for a LeetCode password or session cookie.
