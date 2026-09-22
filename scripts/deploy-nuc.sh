@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
-# Build Forge and ship it to the NUC. LAN only — Forge has no authentication.
+# Manual deploy: build locally and ship the files to the NUC.
+#
+# Normally you do not need this. Pushing to main builds an image in CI and
+# Watchtower pulls it within ~5 minutes. Keep this for when CI is down or you
+# want to test an uncommitted change on the NUC.
+#
+# LAN only — Forge has no authentication.
 set -euo pipefail
 
 HOST="${FORGE_HOST:-homelab}"
